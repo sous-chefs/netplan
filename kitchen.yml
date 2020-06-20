@@ -1,0 +1,52 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  product_version: <%= ENV['CHEF_VERSION'] || 'latest' %>
+  install_strategy: once
+
+client_rb:
+  treat_deprecation_warnings_as_errors: true
+verifier:
+  name: inspec
+
+platforms:
+  - name: debian-9
+  - name: debian-10
+  - name: ubuntu-18.04
+  - name: ubuntu-20.04
+  - name: centos-7
+  - name: centos-8
+  - name: amazonlinux-2
+
+suites:
+  - name: default
+    run_list:
+      - recipe[test::install]
+
+  - name: ldap
+    run_list:
+      - recipe[test::ldap]
+
+  - name: proxy
+    run_list:
+      - recipe[test::proxy]
+
+  - name: plugins
+    run_list:
+      - recipe[test::plugins]
+
+  - name: basic
+    run_list:
+      - recipe[test::basic]
+
+  - name: configure
+    run_list:
+      - recipe[test::configure]
+
+  - name: azuread
+    run_list:
+      - recipe[test::azuread]
