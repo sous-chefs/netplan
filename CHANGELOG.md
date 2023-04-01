@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of the netplan cookbook.
 
-## Unreleased
+## 0.1.4 - *2023-04-01*
 
 ## 0.1.3 - *2023-03-13*
 
