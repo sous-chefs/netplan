@@ -6,6 +6,6 @@ description      'Installs/Configures netplan'
 source_url       'https://github.com/sous-chefs/netplan'
 issues_url       'https://github.com/sous-chefs/netplan/issues'
 chef_version     '>= 15.5'
-version          '0.1.8'
+version          '0.1.9'
 
 supports 'ubuntu'
