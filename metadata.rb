@@ -6,7 +6,7 @@ description      'Provides custom resources to install netplan and manage /etc/n
 source_url       'https://github.com/sous-chefs/netplan'
 issues_url       'https://github.com/sous-chefs/netplan/issues'
 chef_version     '>= 15.3'
-version          '1.0.0'
+version          '1.1.0'
 
 supports 'debian', '>= 12.0'
 supports 'ubuntu', '>= 22.04'
