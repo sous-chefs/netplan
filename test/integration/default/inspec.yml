@@ -1,0 +1,7 @@
+---
+name: default
+title: netplan default tests
+maintainer: Sous Chefs
+license: Apache-2.0
+summary: Verifies Netplan package installation and generated YAML fragments.
+version: 1.0.0

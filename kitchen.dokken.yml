@@ -1,18 +1,47 @@
+---
 driver:
   name: dokken
   privileged: true
   chef_version: <%= ENV['CHEF_VERSION'] || 'current' %>
 
-transport: { name: dokken }
-provisioner: { name: dokken }
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken
 
 platforms:
+  - name: debian-12
+    driver:
+      image: dokken/debian-12
+      pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+
+  - name: debian-13
+    driver:
+      image: dokken/debian-13
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+
   - name: ubuntu-22.04
     driver:
       image: dokken/ubuntu-22.04
       pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
 
   - name: ubuntu-24.04
     driver:
       image: dokken/ubuntu-24.04
       pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update
+
+  - name: ubuntu-26.04
+    driver:
+      image: dokken/ubuntu-26.04
+      pid_one_command: /usr/lib/systemd/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update

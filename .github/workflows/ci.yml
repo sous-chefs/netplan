@@ -4,17 +4,18 @@ name: ci
 "on":
   pull_request:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   lint-unit:
     uses: sous-chefs/.github/.github/workflows/lint-unit.yml@8.0.4
     permissions:
-      actions: write
+      contents: read
       checks: write
       pull-requests: write
       statuses: write
-      issues: write
+    secrets: inherit
 
   integration:
     needs: lint-unit
@@ -22,8 +23,11 @@ jobs:
     strategy:
       matrix:
         os:
+          - debian-12
+          - debian-13
           - ubuntu-2204
           - ubuntu-2404
+          - ubuntu-2604
         suite:
           - default
       fail-fast: false
@@ -31,10 +35,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v7
-      - name: Install Chef
-        uses: actionshub/chef-install@main
+      - name: Install Cinc Workstation
+        uses: sous-chefs/.github/.github/actions/install-workstation@8.0.4
       - name: Dokken
-        uses: actionshub/test-kitchen@main
+        uses: actionshub/test-kitchen@3.0.0
         env:
           CHEF_LICENSE: accept-no-persist
           KITCHEN_LOCAL_YAML: kitchen.dokken.yml
