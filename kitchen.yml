@@ -13,35 +13,9 @@ verifier:
   name: inspec
 
 platforms:
-  - name: almalinux-8
-  - name: amazonlinux-2
-  - name: centos-7
-  - name: centos-stream-8
-  - name: debian-10
-  - name: debian-11
-  - name: opensuse-leap-15
-  - name: rockylinux-8
-  - name: ubuntu-18.04
-  - name: ubuntu-20.04
+  - name: ubuntu-22.04
+  - name: ubuntu-24.04
 
 suites:
   - name: default
-    run_list: recipe[test::install]
-
-  - name: ldap
-    run_list: recipe[test::ldap]
-
-  - name: proxy
-    run_list: recipe[test::proxy]
-
-  - name: plugins
-    run_list: recipe[test::plugins]
-
-  - name: basic
-    run_list: recipe[test::basic]
-
-  - name: configure
-    run_list: recipe[test::configure]
-
-  - name: azuread
-    run_list: recipe[test::azuread]
+    run_list: recipe[test::default]

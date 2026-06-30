@@ -8,4 +8,4 @@ issues_url       'https://github.com/sous-chefs/netplan/issues'
 chef_version     '>= 15.5'
 version          '0.1.13'
 
-supports 'ubuntu'
+supports 'ubuntu', '>= 22.04'
